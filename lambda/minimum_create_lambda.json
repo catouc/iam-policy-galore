@@ -14,7 +14,7 @@
         "lambda:TagResource",
         "lambda:EnableReplication"
       ],
-      "Resource":"arn:aws:lambda::*:function:*"
+      "Resource":"arn:aws:lambda:*:*:function:*"
     },
     {
       "Sid":"IamLambdaMinimumCreateActions",
@@ -34,7 +34,7 @@
         "lambda:RemovePermission",
         "lambda:UntagResource"
       ],
-      "Resource":"arn:aws:lambda::*:function:*"
+      "Resource":"arn:aws:lambda:*:*:function:*"
     }
   ]
 }
