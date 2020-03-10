@@ -1,0 +1,28 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "SourceBucketReadAccess",
+            "Action": [
+                "s3:GetReplicationConfiguration",
+                "s3:GetObjectVersion",
+                "s3:GetObjectVersionAcl",
+                "s3:ListBucket"
+            ],
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:s3:::<your-bucket-name>",
+                "arn:aws:s3:::<your-bucket-name>/*"
+            ]
+        },
+        {
+            "Sid": "ReplicationBucketWriteAccess",
+            "Action": [
+                "s3:ReplicateObject",
+                "s3:ReplicateDelete"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:s3:::<you-bucket-name>/*"
+        }
+    ]
+}
