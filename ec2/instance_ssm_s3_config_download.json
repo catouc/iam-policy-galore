@@ -1,0 +1,23 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DownloadConfig",
+            "Effect": "Allow",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::<complete-path-to-the-config>"
+        },
+        {
+            "Sid": "GetSSMParameter",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:GetParameter",
+                "kms:Decrypt"
+            ],
+            "Resource": [
+                "arn:aws:ssm:<region>:<account-number>:parameter/<parameter-path>",
+                "arn:aws:kms:::alias/<path-to-your-alias>"
+            ]
+        }
+    ]
+}
