@@ -1,0 +1,27 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AssumeRoleInTargetAccount",
+      "Effect": "Allow",
+      "Action": "sts:AssumeRole",
+      "Resource": "arn:aws:iam:<account-id>:role/<role-name>"
+    }
+  ]
+}
+
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "TargetAccountAllowRole",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::<account-id>:user/<user-name>",
+        "Service": "<service-identifier (s3) leave blank if broader access needed and scope on the target role>.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
