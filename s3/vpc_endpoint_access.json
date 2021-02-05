@@ -1,0 +1,33 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowVPCEndpointAccess",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::<your-bucket>/*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:SourceVpce": "vpce-xxxxxxxxxxxxxx"
+                }
+            }
+        },
+        {
+            "Sid": "AllowVPCAccess",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::<your-bucket>/*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:SourceVpc": "vpc-xxxxxxxxxxxxxx"
+                }
+            }
+        }
+    ]
+}
